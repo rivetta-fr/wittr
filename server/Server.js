@@ -17,6 +17,7 @@ import remoteExecutorTemplate from './templates/remote-executor';
 import idbTestTemplate from './templates/idb-test';
 import {generateReady, generateMessage} from './generateMessage';
 
+
 const maxMessages = 30;
 
 const compressor = compression({
@@ -65,7 +66,7 @@ export default class Server {
       server: this._appServer,
       path: '/updates'
     });
-    
+
     const staticOptions = {
       maxAge: 0
     };
@@ -185,7 +186,7 @@ export default class Server {
   _onWsConnection(socket) {
     const requestUrl = url.parse(socket.upgradeReq.url, true);
 
-    if ('no-socket' in requestUrl.query) return; 
+    if ('no-socket' in requestUrl.query) return;
 
     this._sockets.push(socket);
 
